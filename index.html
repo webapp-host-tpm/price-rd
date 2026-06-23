@@ -373,6 +373,130 @@
       object-fit: cover;
     }
 
+    .slideshow-card {
+      position: relative;
+      min-height: 470px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card-solid);
+      box-shadow: var(--shadow);
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .slide button {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 470px;
+      object-fit: cover;
+    }
+
+    .slide::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 45%;
+      background: linear-gradient(0deg, rgba(0,0,0,0.72), transparent);
+      pointer-events: none;
+    }
+
+    .slide-caption {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 54px;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .slide-caption strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .slide-caption span {
+      color: rgba(244, 240, 232, 0.82);
+      font-size: 0.92rem;
+    }
+
+    .slide-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(0,0,0,0.38);
+      color: white;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      line-height: 1;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .slide-arrow:hover {
+      background: rgba(0,0,0,0.62);
+    }
+
+    .slide-prev {
+      left: 16px;
+    }
+
+    .slide-next {
+      right: 16px;
+    }
+
+    .slide-dots {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 18px;
+      z-index: 6;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .slide-dot {
+      width: 9px;
+      height: 9px;
+      padding: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.56);
+      background: rgba(255,255,255,0.22);
+      cursor: pointer;
+    }
+
+    .slide-dot.active {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
     .copy-card {
       background: rgba(255, 255, 255, 0.065);
       border: 1px solid var(--border);
@@ -485,7 +609,8 @@
       overflow: hidden;
     }
 
-    .use-image-button::after {
+    .use-image-button::after,
+    .slide button::after {
       content: "Click to enlarge";
       position: absolute;
       right: 12px;
@@ -499,9 +624,11 @@
       opacity: 0;
       transform: translateY(6px);
       transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 4;
     }
 
-    .use-image-button:hover::after {
+    .use-image-button:hover::after,
+    .slide button:hover::after {
       opacity: 1;
       transform: translateY(0);
     }
@@ -692,8 +819,11 @@
         grid-column: span 6;
       }
 
-      .media-card img {
+      .media-card img,
+      .slide img,
+      .slideshow-card {
         height: 360px;
+        min-height: 360px;
       }
     }
 
@@ -727,6 +857,16 @@
 
       .use-image-button img {
         height: 250px;
+      }
+
+      .slide-caption {
+        left: 18px;
+        right: 18px;
+        bottom: 50px;
+      }
+
+      .slide-caption span {
+        display: none;
       }
     }
   </style>
@@ -850,8 +990,89 @@
     <!-- STORY / IMPROVEMENTS -->
     <section>
       <div class="container split">
-        <div class="media-card">
-          <img src="images/driveway-or-clearing.jpg" alt="Driveway or clearing at the 12 acre Price Road property in Logan Ohio">
+        <div class="slideshow-card" aria-label="Improvement photos slideshow">
+          <div class="slide active">
+            <button type="button" data-full="images/improvement-driveway.jpg">
+              <img src="images/improvement-driveway.jpg" alt="Driveway access into the 12 acre Price Road property in Logan Ohio">
+            </button>
+            <div class="slide-caption">
+              <strong>Driveway access</strong>
+              <span>Access into the property is already started, making the land easier to view and use.</span>
+            </div>
+          </div>
+
+          <div class="slide">
+            <button type="button" data-full="images/improvement-water.jpg">
+              <img src="images/improvement-water.jpg" alt="Waterline tap and hydrants on the Price Road property">
+            </button>
+            <div class="slide-caption">
+              <strong>Waterline tap + hydrants</strong>
+              <span>Water improvements are a major starting point for future recreational or building plans.</span>
+            </div>
+          </div>
+
+          <div class="slide">
+            <button type="button" data-full="images/improvement-electric.jpg">
+              <img src="images/improvement-electric.jpg" alt="AEP electric line crossing the rural property in Hocking County Ohio">
+            </button>
+            <div class="slide-caption">
+              <strong>AEP electric line</strong>
+              <span>An AEP electric line crosses the property. Buyer should verify service options with AEP.</span>
+            </div>
+          </div>
+
+          <div class="slide">
+            <button type="button" data-full="images/improvement-shed.jpg">
+              <img src="images/improvement-shed.jpg" alt="Existing shed on the Price Road property">
+            </button>
+            <div class="slide-caption">
+              <strong>Existing shed</strong>
+              <span>Useful for storage, staging, tools, camping supplies, or early property projects.</span>
+            </div>
+          </div>
+
+          <div class="slide">
+            <button type="button" data-full="images/improvement-deck.jpg">
+              <img src="images/improvement-deck.jpg" alt="Large round deck platform for camping or outdoor gathering space">
+            </button>
+            <div class="slide-caption">
+              <strong>Round deck platform</strong>
+              <span>A large 24-foot diameter platform creates a memorable camping or gathering destination.</span>
+            </div>
+          </div>
+
+          <div class="slide">
+            <button type="button" data-full="images/improvement-woods.jpg">
+              <img src="images/improvement-woods.jpg" alt="Wooded acreage with recreational and cabin site potential near Logan Ohio">
+            </button>
+            <div class="slide-caption">
+              <strong>Wooded acreage</strong>
+              <span>Private, rural land with recreational, cabin, and retreat-style potential.</span>
+            </div>
+          </div>
+
+          <div class="slide">
+            <button type="button" data-full="images/improvement-logs.jpg">
+              <img src="images/improvement-logs.jpg" alt="Pine logs that may be negotiable with the Price Road property sale">
+            </button>
+            <div class="slide-caption">
+              <strong>Optional pine logs</strong>
+              <span>Pine logs may be negotiable depending on the final sale arrangement.</span>
+            </div>
+          </div>
+
+          <button class="slide-arrow slide-prev" type="button" aria-label="Previous improvement photo">‹</button>
+          <button class="slide-arrow slide-next" type="button" aria-label="Next improvement photo">›</button>
+
+          <div class="slide-dots" aria-label="Slideshow controls">
+            <button class="slide-dot active" type="button" aria-label="Show driveway slide"></button>
+            <button class="slide-dot" type="button" aria-label="Show water slide"></button>
+            <button class="slide-dot" type="button" aria-label="Show electric slide"></button>
+            <button class="slide-dot" type="button" aria-label="Show shed slide"></button>
+            <button class="slide-dot" type="button" aria-label="Show deck slide"></button>
+            <button class="slide-dot" type="button" aria-label="Show woods slide"></button>
+            <button class="slide-dot" type="button" aria-label="Show logs slide"></button>
+          </div>
         </div>
 
         <div class="copy-card">
@@ -888,13 +1109,12 @@
         </div>
 
         <div class="video-wrap">
-          <!-- Option 1: Local video file -->
           <video controls poster="images/video-poster.jpg">
             <source src="video/property-walkthrough.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
 
-          <!-- Option 2: YouTube embed. Replace the video above with this iframe if you upload to YouTube.
+          <!-- YouTube option:
           <iframe
             src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
             title="37359 Price Road Property Walkthrough"
@@ -1205,6 +1425,38 @@
       if (event.key === "Escape") {
         closeLightbox();
       }
+    });
+
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const dots = Array.from(document.querySelectorAll(".slide-dot"));
+    const prevButton = document.querySelector(".slide-prev");
+    const nextButton = document.querySelector(".slide-next");
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      currentSlide = (index + slides.length) % slides.length;
+
+      slides.forEach((slide, slideIndex) => {
+        slide.classList.toggle("active", slideIndex === currentSlide);
+      });
+
+      dots.forEach((dot, dotIndex) => {
+        dot.classList.toggle("active", dotIndex === currentSlide);
+      });
+    }
+
+    prevButton.addEventListener("click", () => {
+      showSlide(currentSlide - 1);
+    });
+
+    nextButton.addEventListener("click", () => {
+      showSlide(currentSlide + 1);
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        showSlide(index);
+      });
     });
   </script>
 </body>
