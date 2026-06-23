@@ -1,1 +1,1099 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>12 Acres for Sale | 37359 Price Road, Logan, Ohio</title>
+  <meta name="description" content="12-acre improved recreational and cabin-site property for sale at 37359 Price Road in Logan, Ohio, near the Hocking Hills area." />
+
+  <style>
+    :root {
+      --bg: #0f1712;
+      --bg-soft: #172319;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-solid: #1d2b20;
+      --text: #f4f0e8;
+      --muted: #c9c0ad;
+      --accent: #d59b4c;
+      --accent-dark: #9f6f2e;
+      --green: #6f8f5f;
+      --border: rgba(255, 255, 255, 0.14);
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      --radius: 22px;
+      --max: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(213, 155, 76, 0.12), transparent 32rem),
+        linear-gradient(180deg, #0c130f 0%, var(--bg) 45%, #0b100d 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img, video, iframe {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(15, 23, 18, 0.72);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background:
+        linear-gradient(135deg, var(--accent), var(--green));
+      display: grid;
+      place-items: center;
+      color: #111;
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      min-height: calc(100vh - 68px);
+      display: grid;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 72px 0;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(12, 19, 15, 0.92) 0%, rgba(12, 19, 15, 0.72) 46%, rgba(12, 19, 15, 0.28) 100%),
+        url("images/hero-property.jpg") center/cover no-repeat;
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 180px;
+      background: linear-gradient(0deg, var(--bg), transparent);
+      z-index: -1;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.75fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 13px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow span {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 5.8rem);
+      line-height: 0.95;
+      margin: 0 0 20px;
+      letter-spacing: -0.06em;
+    }
+
+    .hero-lead {
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      color: var(--muted);
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, border 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: #191207;
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .hero-card {
+      background: rgba(18, 28, 21, 0.78);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      backdrop-filter: blur(16px);
+    }
+
+    .price-box {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 18px;
+      margin-bottom: 18px;
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 800;
+    }
+
+    .price {
+      font-size: 2.1rem;
+      font-weight: 900;
+      margin-top: 4px;
+    }
+
+    .replace-note {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+
+    .stat-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .stat-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat-list li:last-child {
+      border-bottom: none;
+    }
+
+    .stat-list strong {
+      color: var(--text);
+    }
+
+    .stat-list span {
+      color: var(--muted);
+      text-align: right;
+    }
+
+    section {
+      padding: 78px 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 32px;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.82rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      margin: 0 0 14px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin: 0;
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .highlight-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      min-height: 170px;
+    }
+
+    .highlight-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: rgba(213, 155, 76, 0.16);
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      font-size: 1.2rem;
+    }
+
+    .highlight-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+    }
+
+    .highlight-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .media-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card-solid);
+      box-shadow: var(--shadow);
+    }
+
+    .media-card img {
+      width: 100%;
+      height: 470px;
+      object-fit: cover;
+    }
+
+    .copy-card {
+      background: rgba(255, 255, 255, 0.065);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+    }
+
+    .copy-card p {
+      color: var(--muted);
+      margin-top: 0;
+    }
+
+    .check-list {
+      list-style: none;
+      padding: 0;
+      margin: 22px 0 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .check-list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .check-list li::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .video-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #050705;
+      box-shadow: var(--shadow);
+    }
+
+    .video-wrap video,
+    .video-wrap iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      height: auto;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+
+    .gallery-item {
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      border-radius: 18px;
+      overflow: hidden;
+      background: transparent;
+      min-height: 220px;
+    }
+
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(4) {
+      grid-column: span 6;
+    }
+
+    .gallery-item:nth-child(2),
+    .gallery-item:nth-child(3),
+    .gallery-item:nth-child(5),
+    .gallery-item:nth-child(6) {
+      grid-column: span 3;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      object-fit: cover;
+      transition: transform 0.25s ease, filter 0.25s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+      filter: brightness(1.08);
+    }
+
+    .uses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .use-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.045));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .use-card h3 {
+      margin-top: 0;
+    }
+
+    .use-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .map-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.75fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .map-frame {
+      min-height: 460px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--card-solid);
+      box-shadow: var(--shadow);
+    }
+
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 460px;
+      border: 0;
+    }
+
+    .details-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .details-table th,
+    .details-table td {
+      padding: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .details-table th {
+      width: 38%;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .details-table td {
+      color: var(--muted);
+    }
+
+    .details-table tr:last-child th,
+    .details-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .notice {
+      background: rgba(213, 155, 76, 0.12);
+      border: 1px solid rgba(213, 155, 76, 0.28);
+      border-radius: var(--radius);
+      padding: 18px;
+      color: var(--muted);
+      margin-top: 22px;
+      font-size: 0.95rem;
+    }
+
+    .contact-section {
+      background:
+        linear-gradient(135deg, rgba(213, 155, 76, 0.17), rgba(111, 143, 95, 0.13)),
+        rgba(255,255,255,0.04);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.55fr);
+      gap: 28px;
+      align-items: center;
+      background: rgba(15, 23, 18, 0.55);
+      border: 1px solid var(--border);
+      border-radius: calc(var(--radius) + 8px);
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card p {
+      color: var(--muted);
+    }
+
+    .contact-actions {
+      display: grid;
+      gap: 12px;
+    }
+
+    footer {
+      padding: 34px 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 24px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-height: 86vh;
+      max-width: min(1100px, 96vw);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .lightbox button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.12);
+      color: white;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .split,
+      .map-grid,
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      .highlight-grid,
+      .uses-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-item:nth-child(n) {
+        grid-column: span 6;
+      }
+
+      .media-card img {
+        height: 360px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .highlight-grid,
+      .uses-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item:nth-child(n) {
+        grid-column: span 12;
+      }
+
+      .hero {
+        padding: 52px 0;
+      }
+
+      section {
+        padding: 56px 0;
+      }
+
+      .contact-card,
+      .copy-card,
+      .hero-card {
+        padding: 22px;
+      }
+
+      .cta-row .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="Price Road Property">
+        <span class="brand-mark">PR</span>
+        <span>Price Road Property</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Page navigation">
+        <a href="#overview">Overview</a>
+        <a href="#video">Video</a>
+        <a href="#gallery">Photos</a>
+        <a href="#map">Map</a>
+        <a href="#details">Details</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span></span> 12 Acres in Logan, Ohio</div>
+          <h1>Improved Hocking Hills-area land with room to build, camp, explore, and unwind.</h1>
+          <p class="hero-lead">
+            37359 Price Road offers approximately 12 acres near Logan, Ohio, with meaningful improvements already started:
+            driveway access, waterline tap, hydrants, a shed, and a large round deck structure that can support a memorable
+            camping or retreat setup.
+          </p>
+
+          <div class="cta-row">
+            <a class="button button-primary" href="#contact">Ask About the Property</a>
+            <a class="button button-secondary" href="#video">Watch Walkthrough</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Property summary">
+          <div class="price-box">
+            <div class="label">Asking Price</div>
+            <div class="price">$___,___</div>
+            <div class="replace-note">Replace with final listing price.</div>
+          </div>
+
+          <ul class="stat-list">
+            <li>
+              <strong>Address</strong>
+              <span>37359 Price Road<br>Logan, OH</span>
+            </li>
+            <li>
+              <strong>Acreage</strong>
+              <span>Approx. 12 acres</span>
+            </li>
+            <li>
+              <strong>Access</strong>
+              <span>Driveway installed</span>
+            </li>
+            <li>
+              <strong>Water</strong>
+              <span>Waterline tap + 2 hydrants</span>
+            </li>
+            <li>
+              <strong>Existing features</strong>
+              <span>Shed + round deck platform</span>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section id="overview">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Property Highlights</div>
+          <h2>Not just raw land — a head start.</h2>
+          <p>
+            The property has several practical improvements already in place, making it easier for a future owner to imagine
+            a cabin, weekend retreat, hunting base, camping setup, or rural getaway.
+          </p>
+        </div>
+
+        <div class="highlight-grid">
+          <article class="highlight-card">
+            <div class="highlight-icon">🌲</div>
+            <h3>Approx. 12 Acres</h3>
+            <p>Wooded rural acreage near Logan and the Hocking Hills region.</p>
+          </article>
+
+          <article class="highlight-card">
+            <div class="highlight-icon">🛻</div>
+            <h3>Driveway Access</h3>
+            <p>Driveway access has already been added, giving the property a major usability improvement.</p>
+          </article>
+
+          <article class="highlight-card">
+            <div class="highlight-icon">💧</div>
+            <h3>Waterline Tap</h3>
+            <p>Waterline tap and two hydrants are present, creating a valuable utility starting point.</p>
+          </article>
+
+          <article class="highlight-card">
+            <div class="highlight-icon">⛺</div>
+            <h3>Retreat Potential</h3>
+            <p>Existing shed and large round deck structure create immediate recreational use potential.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY / IMPROVEMENTS -->
+    <section>
+      <div class="container split">
+        <div class="media-card">
+          <img src="images/driveway-or-clearing.jpg" alt="Driveway or clearing at the Price Road property">
+        </div>
+
+        <div class="copy-card">
+          <div class="section-kicker">What Has Been Added</div>
+          <h2>Several of the hard first steps are already started.</h2>
+          <p>
+            For many rural properties, the first challenges are access, water, staging, and creating a usable destination.
+            This property already includes improvements that help a buyer see the path forward.
+          </p>
+
+          <ul class="check-list">
+            <li>Driveway access into the property.</li>
+            <li>Waterline tap with two hydrants.</li>
+            <li>Existing shed for storage or staging.</li>
+            <li>Large 24-foot diameter round deck structure that could support a tent or outdoor gathering space.</li>
+            <li>Wooded acreage with recreational, cabin, and retreat-style potential.</li>
+            <li>Optional pine logs may be available depending on the final sale arrangement.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section id="video">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Walkthrough Video</div>
+          <h2>See the property before you visit.</h2>
+          <p>
+            Add your walkthrough video here. A simple video showing the entrance, driveway, water hydrants, shed, deck area,
+            woods, and overall feel of the land will help buyers understand the opportunity quickly.
+          </p>
+        </div>
+
+        <div class="video-wrap">
+          <!-- Option 1: Local video file -->
+          <video controls poster="images/video-poster.jpg">
+            <source src="video/property-walkthrough.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+
+          <!-- Option 2: YouTube embed. Replace the video above with this iframe if you upload to YouTube.
+          <iframe
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+            title="37359 Price Road Property Walkthrough"
+            allowfullscreen>
+          </iframe>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Photo Gallery</div>
+          <h2>Show the land, improvements, and setting.</h2>
+          <p>
+            Replace these placeholder image filenames with your actual photos. Strong photo targets include the road frontage,
+            driveway, stream crossing, hydrants, shed, deck, wooded areas, clearings, and any scenic spots.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <button class="gallery-item" data-full="images/gallery-01.jpg">
+            <img src="images/gallery-01.jpg" alt="Entrance and driveway">
+          </button>
+
+          <button class="gallery-item" data-full="images/gallery-02.jpg">
+            <img src="images/gallery-02.jpg" alt="Water hydrant or utility area">
+          </button>
+
+          <button class="gallery-item" data-full="images/gallery-03.jpg">
+            <img src="images/gallery-03.jpg" alt="Shed on the property">
+          </button>
+
+          <button class="gallery-item" data-full="images/gallery-04.jpg">
+            <img src="images/gallery-04.jpg" alt="Round deck or camping platform">
+          </button>
+
+          <button class="gallery-item" data-full="images/gallery-05.jpg">
+            <img src="images/gallery-05.jpg" alt="Wooded acreage">
+          </button>
+
+          <button class="gallery-item" data-full="images/gallery-06.jpg">
+            <img src="images/gallery-06.jpg" alt="Trail, clearing, or property view">
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- POSSIBLE USES -->
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Possible Uses</div>
+          <h2>A flexible rural property with multiple paths forward.</h2>
+          <p>
+            Keep this section aspirational but careful. The property may fit several buyer types, but buyers should verify
+            zoning, septic, building, and short-term rental requirements for their intended use.
+          </p>
+        </div>
+
+        <div class="uses-grid">
+          <article class="use-card">
+            <h3>Weekend Retreat</h3>
+            <p>
+              A private basecamp for relaxing, camping, hiking, sitting by a fire, or spending weekends near the Hocking Hills area.
+            </p>
+          </article>
+
+          <article class="use-card">
+            <h3>Cabin or Small Build Site</h3>
+            <p>
+              With access and water improvements started, the property may be attractive to someone planning a cabin, garage,
+              pole barn, or rural getaway.
+            </p>
+          </article>
+
+          <article class="use-card">
+            <h3>Recreational Land</h3>
+            <p>
+              Wooded acreage with space for trails, wildlife watching, outdoor projects, and a quiet escape from town.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section id="map">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Location</div>
+          <h2>37359 Price Road, Logan, Ohio</h2>
+          <p>
+            Use this map for general location context. For a stronger version, you could later embed an ArcGIS map showing
+            parcel boundaries, driveway, hydrants, deck, shed, and key property features.
+          </p>
+        </div>
+
+        <div class="map-grid">
+          <div class="map-frame">
+            <iframe
+              title="Map of 37359 Price Road, Logan, Ohio"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=37359%20Price%20Road%2C%20Logan%2C%20OH&output=embed">
+            </iframe>
+          </div>
+
+          <div class="copy-card">
+            <h3>Map ideas to add later</h3>
+            <ul class="check-list">
+              <li>Parcel boundary outline.</li>
+              <li>Driveway and entrance location.</li>
+              <li>Water hydrant locations.</li>
+              <li>Shed and round deck location.</li>
+              <li>Potential build/camping areas.</li>
+              <li>Nearby Logan/Hocking Hills context.</li>
+            </ul>
+
+            <div class="notice">
+              Map boundaries and feature locations should be considered approximate unless based on a survey or official GIS data.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETAILS -->
+    <section id="details">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Property Details</div>
+          <h2>Simple facts buyers will want to know.</h2>
+          <p>
+            This section should be factual and easy to scan. Replace anything marked “verify” with final listing details
+            before publishing.
+          </p>
+        </div>
+
+        <table class="details-table">
+          <tr>
+            <th>Property Address</th>
+            <td>37359 Price Road, Logan, Ohio</td>
+          </tr>
+          <tr>
+            <th>Acreage</th>
+            <td>Approximately 12 acres. Buyer to verify acreage and boundaries.</td>
+          </tr>
+          <tr>
+            <th>County / Area</th>
+            <td>Hocking County / Logan, Ohio area.</td>
+          </tr>
+          <tr>
+            <th>Access</th>
+            <td>Driveway access has been installed.</td>
+          </tr>
+          <tr>
+            <th>Water</th>
+            <td>Waterline tap and two hydrants are present. Buyer to verify service details and future use requirements.</td>
+          </tr>
+          <tr>
+            <th>Existing Improvements</th>
+            <td>Shed, driveway, water hydrants, and large round deck/camping platform.</td>
+          </tr>
+          <tr>
+            <th>Sewer / Septic</th>
+            <td>No septic details included here. Buyer to verify septic feasibility and permitting requirements for intended use.</td>
+          </tr>
+          <tr>
+            <th>Potential Uses</th>
+            <td>Recreational land, camping retreat, cabin site, rural getaway, or future build opportunity, subject to buyer verification.</td>
+          </tr>
+          <tr>
+            <th>Included / Negotiable Items</th>
+            <td>Existing shed and deck structure included unless otherwise stated. Pine logs may be negotiable depending on final agreement.</td>
+          </tr>
+        </table>
+
+        <div class="notice">
+          Information is provided for general marketing purposes only. Buyer should independently verify acreage, boundaries,
+          zoning, building requirements, septic feasibility, utility availability, permits, driveway/access requirements, taxes,
+          and any intended short-term rental or recreational use.
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <div class="section-kicker">Interested?</div>
+            <h2>Schedule a visit or ask for more information.</h2>
+            <p>
+              Serious buyers can request additional photos, the walkthrough video, parcel information, or a time to walk the property.
+            </p>
+          </div>
+
+          <div class="contact-actions">
+            <a class="button button-primary" href="mailto:YOUR_EMAIL_HERE?subject=Price%20Road%2012%20Acre%20Property">
+              Email About the Property
+            </a>
+
+            <a class="button button-secondary" href="tel:YOUR_PHONE_HERE">
+              Call / Text
+            </a>
+
+            <a class="button button-secondary" href="#map">
+              View Map
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> 37359 Price Road Property. All information subject to buyer verification.
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" id="lightboxClose" aria-label="Close photo preview">×</button>
+    <img id="lightboxImage" src="" alt="Expanded property photo">
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    document.querySelectorAll(".gallery-item").forEach((item) => {
+      item.addEventListener("click", () => {
+        const fullImage = item.getAttribute("data-full");
+        const altText = item.querySelector("img").getAttribute("alt");
+
+        lightboxImage.src = fullImage;
+        lightboxImage.alt = altText;
+        lightbox.classList.add("active");
+        lightbox.setAttribute("aria-hidden", "false");
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove("active");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.src = "";
+    }
+
+    lightboxClose.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
+```
 
