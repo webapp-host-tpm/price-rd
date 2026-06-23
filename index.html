@@ -1,11 +1,18 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>12 Acres for Sale | 37359 Price Road, Logan, Ohio</title>
-  <meta name="description" content="12-acre improved recreational and cabin-site property for sale at 37359 Price Road in Logan, Ohio, near the Hocking Hills area." />
+  <title>12 Acres for Sale in Hocking County, Ohio | 37359 Price Road, Logan OH</title>
+  <meta name="description" content="12 acres for sale at 37359 Price Road in Logan, Ohio near the Hocking Hills area. Improved rural land with driveway access, waterline tap, hydrants, shed, electric line crossing the property, and camping or cabin-site potential." />
+
+  <meta property="og:title" content="12 Acres for Sale in Hocking County, Ohio">
+  <meta property="og:description" content="Improved 12-acre property at 37359 Price Road in Logan, Ohio with driveway access, waterline tap, hydrants, shed, electric line crossing the property, and retreat potential.">
+  <meta property="og:image" content="https://YOURDOMAIN.com/images/hero-property.jpg">
+  <meta property="og:url" content="https://YOURDOMAIN.com/">
+  <meta property="og:type" content="website">
 
   <style>
     :root {
@@ -50,6 +57,10 @@
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    button {
+      font: inherit;
     }
 
     .container {
@@ -461,15 +472,62 @@
       background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.045));
       border: 1px solid var(--border);
       border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .use-image-button {
+      width: 100%;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .use-image-button::after {
+      content: "Click to enlarge";
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.58);
+      color: white;
+      font-size: 0.78rem;
+      font-weight: 800;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .use-image-button:hover::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .use-image-button img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      transition: transform 0.25s ease, filter 0.25s ease;
+    }
+
+    .use-image-button:hover img {
+      transform: scale(1.04);
+      filter: brightness(1.08);
+    }
+
+    .use-card-body {
       padding: 24px;
     }
 
     .use-card h3 {
-      margin-top: 0;
+      margin: 0 0 10px;
     }
 
     .use-card p {
-      margin-bottom: 0;
+      margin: 0;
       color: var(--muted);
     }
 
@@ -576,7 +634,7 @@
     .lightbox {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.88);
+      background: rgba(0, 0, 0, 0.9);
       display: none;
       align-items: center;
       justify-content: center;
@@ -607,6 +665,10 @@
       color: white;
       font-size: 1.4rem;
       cursor: pointer;
+    }
+
+    .lightbox button:hover {
+      background: rgba(255,255,255,0.22);
     }
 
     @media (max-width: 900px) {
@@ -662,6 +724,10 @@
       .cta-row .button {
         width: 100%;
       }
+
+      .use-image-button img {
+        height: 250px;
+      }
     }
   </style>
 </head>
@@ -691,11 +757,11 @@
       <div class="container hero-grid">
         <div>
           <div class="eyebrow"><span></span> 12 Acres in Logan, Ohio</div>
-          <h1>Improved Hocking Hills-area land with room to build, camp, explore, and unwind.</h1>
+          <h1>12 Acres for Sale in Hocking County, Ohio</h1>
           <p class="hero-lead">
-            37359 Price Road offers approximately 12 acres near Logan, Ohio, with meaningful improvements already started:
-            driveway access, waterline tap, hydrants, a shed, and a large round deck structure that can support a memorable
-            camping or retreat setup.
+            Improved rural land at 37359 Price Road in Logan, Ohio, near the Hocking Hills area. The property includes
+            driveway access, a waterline tap, two hydrants, a shed, a large round deck platform, and an AEP electric line
+            crossing the property.
           </p>
 
           <div class="cta-row">
@@ -727,6 +793,10 @@
             <li>
               <strong>Water</strong>
               <span>Waterline tap + 2 hydrants</span>
+            </li>
+            <li>
+              <strong>Electric</strong>
+              <span>AEP line crosses property</span>
             </li>
             <li>
               <strong>Existing features</strong>
@@ -769,9 +839,9 @@
           </article>
 
           <article class="highlight-card">
-            <div class="highlight-icon">⛺</div>
-            <h3>Retreat Potential</h3>
-            <p>Existing shed and large round deck structure create immediate recreational use potential.</p>
+            <div class="highlight-icon">⚡</div>
+            <h3>AEP Line</h3>
+            <p>An AEP electric line crosses the property. Buyer should verify service options and requirements.</p>
           </article>
         </div>
       </div>
@@ -781,7 +851,7 @@
     <section>
       <div class="container split">
         <div class="media-card">
-          <img src="images/driveway-or-clearing.jpg" alt="Driveway or clearing at the Price Road property">
+          <img src="images/driveway-or-clearing.jpg" alt="Driveway or clearing at the 12 acre Price Road property in Logan Ohio">
         </div>
 
         <div class="copy-card">
@@ -795,6 +865,7 @@
           <ul class="check-list">
             <li>Driveway access into the property.</li>
             <li>Waterline tap with two hydrants.</li>
+            <li>AEP electric line crosses the property.</li>
             <li>Existing shed for storage or staging.</li>
             <li>Large 24-foot diameter round deck structure that could support a tent or outdoor gathering space.</li>
             <li>Wooded acreage with recreational, cabin, and retreat-style potential.</li>
@@ -847,28 +918,28 @@
         </div>
 
         <div class="gallery-grid">
-          <button class="gallery-item" data-full="images/gallery-01.jpg">
-            <img src="images/gallery-01.jpg" alt="Entrance and driveway">
+          <button class="gallery-item" type="button" data-full="images/gallery-01.jpg">
+            <img src="images/gallery-01.jpg" alt="Driveway entrance for 12 acre property for sale on Price Road in Logan Ohio">
           </button>
 
-          <button class="gallery-item" data-full="images/gallery-02.jpg">
-            <img src="images/gallery-02.jpg" alt="Water hydrant or utility area">
+          <button class="gallery-item" type="button" data-full="images/gallery-02.jpg">
+            <img src="images/gallery-02.jpg" alt="Water hydrant on improved rural land for sale in Hocking County Ohio">
           </button>
 
-          <button class="gallery-item" data-full="images/gallery-03.jpg">
-            <img src="images/gallery-03.jpg" alt="Shed on the property">
+          <button class="gallery-item" type="button" data-full="images/gallery-03.jpg">
+            <img src="images/gallery-03.jpg" alt="Shed on the Price Road property in Logan Ohio">
           </button>
 
-          <button class="gallery-item" data-full="images/gallery-04.jpg">
-            <img src="images/gallery-04.jpg" alt="Round deck or camping platform">
+          <button class="gallery-item" type="button" data-full="images/gallery-04.jpg">
+            <img src="images/gallery-04.jpg" alt="Round deck camping platform on 12 acre Hocking County property">
           </button>
 
-          <button class="gallery-item" data-full="images/gallery-05.jpg">
-            <img src="images/gallery-05.jpg" alt="Wooded acreage">
+          <button class="gallery-item" type="button" data-full="images/gallery-05.jpg">
+            <img src="images/gallery-05.jpg" alt="Wooded acreage near Logan Ohio and the Hocking Hills area">
           </button>
 
-          <button class="gallery-item" data-full="images/gallery-06.jpg">
-            <img src="images/gallery-06.jpg" alt="Trail, clearing, or property view">
+          <button class="gallery-item" type="button" data-full="images/gallery-06.jpg">
+            <img src="images/gallery-06.jpg" alt="Clearing or scenic view on rural land for sale near Logan Ohio">
           </button>
         </div>
       </div>
@@ -881,33 +952,67 @@
           <div class="section-kicker">Possible Uses</div>
           <h2>A flexible rural property with multiple paths forward.</h2>
           <p>
-            Keep this section aspirational but careful. The property may fit several buyer types, but buyers should verify
-            zoning, septic, building, and short-term rental requirements for their intended use.
+            These concept images can help buyers imagine the property’s potential. Replace the placeholder files with your
+            renderings or edited images. Buyers should verify zoning, septic, building, utility, and short-term rental requirements
+            for their intended use.
           </p>
         </div>
 
         <div class="uses-grid">
           <article class="use-card">
-            <h3>Weekend Retreat</h3>
-            <p>
-              A private basecamp for relaxing, camping, hiking, sitting by a fire, or spending weekends near the Hocking Hills area.
-            </p>
+            <button class="use-image-button" type="button" data-full="images/use-weekend-retreat.jpg">
+              <img src="images/use-weekend-retreat.jpg" alt="Concept image showing possible weekend retreat use for the Price Road property">
+            </button>
+
+            <div class="use-card-body">
+              <h3>Weekend Retreat</h3>
+              <p>
+                A private basecamp for relaxing, camping, hiking, sitting by a fire, or spending weekends near the Hocking Hills area.
+              </p>
+            </div>
           </article>
 
           <article class="use-card">
-            <h3>Cabin or Small Build Site</h3>
-            <p>
-              With access and water improvements started, the property may be attractive to someone planning a cabin, garage,
-              pole barn, or rural getaway.
-            </p>
+            <button class="use-image-button" type="button" data-full="images/use-cabin-site.jpg">
+              <img src="images/use-cabin-site.jpg" alt="Concept rendering showing possible cabin site on 12 acre land in Hocking County Ohio">
+            </button>
+
+            <div class="use-card-body">
+              <h3>Cabin or Small Build Site</h3>
+              <p>
+                With access, water improvements, and an AEP electric line crossing the property, it may be attractive to someone
+                planning a cabin, garage, pole barn, or rural getaway.
+              </p>
+            </div>
           </article>
 
           <article class="use-card">
-            <h3>Recreational Land</h3>
-            <p>
-              Wooded acreage with space for trails, wildlife watching, outdoor projects, and a quiet escape from town.
-            </p>
+            <button class="use-image-button" type="button" data-full="images/use-recreational-land.jpg">
+              <img src="images/use-recreational-land.jpg" alt="Concept image showing recreational wooded land use near Logan Ohio">
+            </button>
+
+            <div class="use-card-body">
+              <h3>Recreational Land</h3>
+              <p>
+                Wooded acreage with space for trails, wildlife watching, outdoor projects, and a quiet escape from town.
+              </p>
+            </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOCKING COUNTY SEO SECTION -->
+    <section id="hocking-county-land">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Hocking County Land for Sale</div>
+          <h2>Improved 12-acre property near Logan, Ohio</h2>
+          <p>
+            This 12-acre property at 37359 Price Road is located in the Logan, Ohio area of Hocking County. It may appeal
+            to buyers looking for recreational land, a weekend retreat, a future cabin site, camping land, or wooded acreage
+            near the Hocking Hills region.
+          </p>
         </div>
       </div>
     </section>
@@ -920,7 +1025,7 @@
           <h2>37359 Price Road, Logan, Ohio</h2>
           <p>
             Use this map for general location context. For a stronger version, you could later embed an ArcGIS map showing
-            parcel boundaries, driveway, hydrants, deck, shed, and key property features.
+            parcel boundaries, driveway, hydrants, deck, shed, electric line location, and key property features.
           </p>
         </div>
 
@@ -941,6 +1046,7 @@
               <li>Driveway and entrance location.</li>
               <li>Water hydrant locations.</li>
               <li>Shed and round deck location.</li>
+              <li>AEP electric line crossing location.</li>
               <li>Potential build/camping areas.</li>
               <li>Nearby Logan/Hocking Hills context.</li>
             </ul>
@@ -987,6 +1093,13 @@
             <td>Waterline tap and two hydrants are present. Buyer to verify service details and future use requirements.</td>
           </tr>
           <tr>
+            <th>Electric</th>
+            <td>
+              An AEP electric line crosses the property. Buyer should verify electric service availability, connection requirements,
+              easements, meter/pole location options, and any costs directly with AEP.
+            </td>
+          </tr>
+          <tr>
             <th>Existing Improvements</th>
             <td>Shed, driveway, water hydrants, and large round deck/camping platform.</td>
           </tr>
@@ -1006,8 +1119,8 @@
 
         <div class="notice">
           Information is provided for general marketing purposes only. Buyer should independently verify acreage, boundaries,
-          zoning, building requirements, septic feasibility, utility availability, permits, driveway/access requirements, taxes,
-          and any intended short-term rental or recreational use.
+          zoning, building requirements, septic feasibility, utility availability, electric service requirements, easements,
+          permits, driveway/access requirements, taxes, and any intended short-term rental or recreational use.
         </div>
       </div>
     </section>
@@ -1048,9 +1161,10 @@
     </div>
   </footer>
 
+  <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <button type="button" id="lightboxClose" aria-label="Close photo preview">×</button>
-    <img id="lightboxImage" src="" alt="Expanded property photo">
+    <img id="lightboxImage" src="" alt="Expanded property image">
   </div>
 
   <script>
@@ -1060,10 +1174,11 @@
     const lightboxImage = document.getElementById("lightboxImage");
     const lightboxClose = document.getElementById("lightboxClose");
 
-    document.querySelectorAll(".gallery-item").forEach((item) => {
+    document.querySelectorAll("[data-full]").forEach((item) => {
       item.addEventListener("click", () => {
         const fullImage = item.getAttribute("data-full");
-        const altText = item.querySelector("img").getAttribute("alt");
+        const img = item.querySelector("img");
+        const altText = img ? img.getAttribute("alt") : "Expanded property image";
 
         lightboxImage.src = fullImage;
         lightboxImage.alt = altText;
@@ -1095,4 +1210,3 @@
 </body>
 </html>
 ```
-
