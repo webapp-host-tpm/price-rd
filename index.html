@@ -1383,13 +1383,20 @@
       }
     });
 
+    const slideshowCard = document.querySelector(".slideshow-card");
     const slides = Array.from(document.querySelectorAll(".slide"));
     const dots = Array.from(document.querySelectorAll(".slide-dot"));
     const prevButton = document.querySelector(".slide-prev");
     const nextButton = document.querySelector(".slide-next");
+
+    const slideshowDelay = 5000; // Time between slides in milliseconds
     let currentSlide = 0;
+    let slideshowTimer = null;
+    let slideshowPaused = false;
 
     function showSlide(index) {
+      if (!slides.length) return;
+
       currentSlide = (index + slides.length) % slides.length;
 
       slides.forEach((slide, slideIndex) => {
@@ -1401,19 +1408,79 @@
       });
     }
 
-    prevButton.addEventListener("click", () => {
+    function stopSlideshow() {
+      if (slideshowTimer) {
+        window.clearInterval(slideshowTimer);
+        slideshowTimer = null;
+      }
+    }
+
+    function startSlideshow() {
+      stopSlideshow();
+
+      if (slides.length <= 1 || slideshowPaused || document.hidden) return;
+
+      slideshowTimer = window.setInterval(() => {
+        showSlide(currentSlide + 1);
+      }, slideshowDelay);
+    }
+
+    function restartSlideshow() {
+      stopSlideshow();
+      startSlideshow();
+    }
+
+    prevButton?.addEventListener("click", () => {
       showSlide(currentSlide - 1);
+      restartSlideshow();
     });
 
-    nextButton.addEventListener("click", () => {
+    nextButton?.addEventListener("click", () => {
       showSlide(currentSlide + 1);
+      restartSlideshow();
     });
 
     dots.forEach((dot, index) => {
       dot.addEventListener("click", () => {
         showSlide(index);
+        restartSlideshow();
       });
     });
+
+    // Pause while the visitor is hovering over the slideshow or using it with the keyboard.
+    slideshowCard?.addEventListener("mouseenter", () => {
+      slideshowPaused = true;
+      stopSlideshow();
+    });
+
+    slideshowCard?.addEventListener("mouseleave", () => {
+      slideshowPaused = false;
+      startSlideshow();
+    });
+
+    slideshowCard?.addEventListener("focusin", () => {
+      slideshowPaused = true;
+      stopSlideshow();
+    });
+
+    slideshowCard?.addEventListener("focusout", (event) => {
+      if (!slideshowCard.contains(event.relatedTarget)) {
+        slideshowPaused = false;
+        startSlideshow();
+      }
+    });
+
+    // Stop rotating when the browser tab is hidden and resume when it becomes visible.
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        stopSlideshow();
+      } else {
+        startSlideshow();
+      }
+    });
+
+    showSlide(0);
+    startSlideshow();
   </script>
 </body>
 </html>
