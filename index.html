@@ -656,15 +656,7 @@
       margin: 0;
       color: var(--muted);
     }
-
-    .map-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.75fr);
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .map-frame {
+.map-frame {
       min-height: 460px;
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -933,7 +925,6 @@
 
       .hero-grid,
       .split,
-      .map-grid,
       .contact-card {
         grid-template-columns: 1fr;
       }
@@ -1359,64 +1350,26 @@
       </div>
     </section>
 
-    <!-- HOCKING COUNTY SEO SECTION -->
-    <section id="hocking-county-land">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-kicker">Hocking County Land for Sale</div>
-          <h2>Improved 12-acre property near Logan, Ohio</h2>
-          <p>
-            This 12-acre property at 37359 Price Road is located in the Logan, Ohio area of Hocking County. It may appeal
-            to buyers looking for recreational land, a weekend retreat, a future cabin site, camping land, or wooded acreage
-            near the Hocking Hills region.
-          </p>
-        </div>
-      </div>
-    </section>
-
     <!-- MAP -->
     <section id="map">
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">Location</div>
           <h2>37359 Price Road, Logan, Ohio</h2>
-          <p>
-            Use this map for general location context. For a stronger version, you could later embed an ArcGIS map showing
-            parcel boundaries, driveway, hydrants, deck, shed, electric line location, and key property features.
-          </p>
         </div>
 
-        <div class="map-grid">
-          <div class="map-frame">
-            <iframe
-              title="Map of 37359 Price Road, Logan, Ohio"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=37359%20Price%20Road%2C%20Logan%2C%20OH&output=embed">
-            </iframe>
-          </div>
-
-          <div class="copy-card">
-            <h3>Map ideas to add later</h3>
-            <ul class="check-list">
-              <li>Parcel boundary outline.</li>
-              <li>Driveway and entrance location.</li>
-              <li>Water hydrant locations.</li>
-              <li>Shed and round deck location.</li>
-              <li>AEP electric line crossing location.</li>
-              <li>Potential build/camping areas.</li>
-              <li>Nearby Logan/Hocking Hills context.</li>
-            </ul>
-
-            <div class="notice">
-              Map boundaries and feature locations should be considered approximate unless based on a survey or official GIS data.
-            </div>
-          </div>
+        <div class="map-frame">
+          <iframe
+            title="Aerial map of 37359 Price Road, Logan, Ohio"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=37359%20Price%20Road%2C%20Logan%2C%20OH&output=embed&t=k&z=16">
+          </iframe>
         </div>
       </div>
     </section>
 
-    <!-- DETAILS -->
+<!-- DETAILS -->
     <section id="details">
       <div class="container">
         <div class="section-head">
